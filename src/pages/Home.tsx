@@ -16,15 +16,20 @@ import {
   workLocations,
   workshops,
 } from '../data/site'
-import { ArrowIcon, MailIcon } from '../components/Icons'
+import { ArrowIcon, MailIcon, PhoneIcon } from '../components/Icons'
+import RevealButton from '../components/RevealButton'
 import { socials } from '../components/Layout'
 import PublicationList from '../components/PublicationList'
 import Typewriter from '../components/Typewriter'
 import HeroSlides from '../components/HeroSlides'
 import LocalTime from '../components/LocalTime'
-import { Badge, ExtLink, LogoTile, MoreLink, Section, btnGhost, btnPrimary } from '../components/ui'
+import { Badge, CopyButton, ExtLink, LogoTile, MoreLink, Section, btnGhost, btnPrimary } from '../components/ui'
 
 const industryProjects = projects.filter((p) => p.status !== 'Research')
+
+/** Round icon button style used in the hero */
+const ROUND_BTN =
+  'flex h-10 w-10 items-center justify-center rounded-full border border-line bg-surface/90 sm:h-11 sm:w-11 text-muted shadow-card transition hover:-translate-y-0.5 hover:border-accent hover:text-accent'
 
 /** Hero background photos (cross-fade). First one loads eagerly. */
 const HERO_SLIDES = [
@@ -143,12 +148,12 @@ export default function Home() {
                 </Link>
               </div>
 
-              <ul className="mt-8 flex flex-wrap items-center gap-3">
+              <ul className="mt-8 flex flex-wrap items-center gap-2 sm:gap-3">
                 {socials.map(({ href, label, Icon }) => (
                   <li key={label}>
                     <ExtLink
                       href={href}
-                      className="flex h-11 w-11 items-center justify-center rounded-full border border-line bg-surface/90 text-muted shadow-card transition hover:-translate-y-0.5 hover:border-accent hover:text-accent"
+                      className="flex h-10 w-10 items-center justify-center rounded-full border border-line bg-surface/90 sm:h-11 sm:w-11 text-muted shadow-card transition hover:-translate-y-0.5 hover:border-accent hover:text-accent"
                     >
                       <Icon className="h-[18px] w-[18px]" />
                       <span className="sr-only">{label}</span>
@@ -156,13 +161,32 @@ export default function Home() {
                   </li>
                 ))}
                 <li>
-                  <a
-                    href={`mailto:${profile.email}`}
-                    className="flex h-11 w-11 items-center justify-center rounded-full border border-line bg-surface/90 text-muted shadow-card transition hover:-translate-y-0.5 hover:border-accent hover:text-accent"
-                  >
-                    <MailIcon className="h-[18px] w-[18px]" />
-                    <span className="sr-only">Email</span>
-                  </a>
+                  <RevealButton label="Email" icon={<MailIcon className="h-[18px] w-[18px]" />} className={ROUND_BTN} align="right">
+                    <p className="text-xs font-semibold uppercase tracking-[0.14em] text-muted">Email</p>
+                    <p className="mt-1.5 select-all font-medium">{profile.email}</p>
+                    <div className="mt-3 flex gap-2">
+                      <a href={`mailto:${profile.email}`} className={`${btnPrimary} px-3 py-1.5 text-xs`}>
+                        Send email
+                      </a>
+                      <CopyButton text={profile.email} label="Copy" className={`${btnGhost} px-3 py-1.5 text-xs`} />
+                    </div>
+                  </RevealButton>
+                </li>
+                <li>
+                  <RevealButton label="Phone" icon={<PhoneIcon className="h-[18px] w-[18px]" />} className={ROUND_BTN} align="right">
+                    <p className="text-xs font-semibold uppercase tracking-[0.14em] text-muted">Phone</p>
+                    <ul className="mt-1.5 space-y-2">
+                      {profile.phones.map((ph) => (
+                        <li key={ph.tel} className="flex items-center justify-between gap-3">
+                          <a href={`tel:${ph.tel}`} className="font-medium hover:text-accent">
+                            {ph.display}
+                            <span className="ml-2 text-xs font-normal text-muted">{ph.label}</span>
+                          </a>
+                          <CopyButton text={ph.tel} label="Copy" className="rounded-md px-2 py-1 text-xs font-semibold text-accent hover:underline" />
+                        </li>
+                      ))}
+                    </ul>
+                  </RevealButton>
                 </li>
               </ul>
             </div>

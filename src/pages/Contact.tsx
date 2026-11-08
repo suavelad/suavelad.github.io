@@ -1,6 +1,6 @@
 import { links, openTo, profile, workLocations } from '../data/site'
 import { socials } from '../components/Layout'
-import { MailIcon } from '../components/Icons'
+import { MailIcon, PhoneIcon } from '../components/Icons'
 import { CopyButton, ExtLink, Section, btnGhost, btnPrimary } from '../components/ui'
 
 export default function Contact() {
@@ -38,6 +38,16 @@ export default function Contact() {
               </a>
               <CopyButton text={profile.email} label="Copy" className={`${btnGhost} px-5 py-3`} />
             </div>
+            <ul className="mt-3 flex flex-wrap gap-3">
+              {profile.phones.map((ph) => (
+                <li key={ph.tel}>
+                  <a href={`tel:${ph.tel}`} className={`${btnGhost} py-3`}>
+                    <PhoneIcon className="h-4 w-4 shrink-0" /> {ph.display}
+                    <span className="text-xs font-normal text-muted">{ph.label}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
             <div className="mt-3 flex flex-wrap gap-3">
               <ExtLink href={links.adplist} className={`${btnGhost} py-3`}>
                 Book mentorship (ADPList)

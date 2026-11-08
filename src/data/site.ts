@@ -8,7 +8,11 @@ export const profile = {
   years: '5+',
   location: 'Kigali, Rwanda',
   affiliation: 'Carnegie Mellon University',
-  email: 'sunnexajayi@gmail.com', // from your CV; alternative: sajayi@andrew.cmu.edu
+  email: 'sunnexajayi@gmail.com',
+  phones: [
+    { label: 'Nigeria', tel: '+2348067715394', display: '+234 806 771 5394' },
+    { label: 'Rwanda', tel: '+250793150023', display: '+250 793 150 023' },
+  ], // from your CV; alternative: sajayi@andrew.cmu.edu
   cv: '/documents/sunday-ajayi-cv.pdf', // drop your CV PDF at public/documents/
   photo: '/images/gallery/portrait-bw-hero.webp',
   photoAlt: 'Black-and-white portrait of Sunday Ajayi wearing glasses, arms crossed',

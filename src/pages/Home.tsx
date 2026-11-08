@@ -47,10 +47,15 @@ const ROLES = [
 
 /** Rotating lines in the hero: everything here is backed by content on the site */
 const HERO_PHRASES = [
-  'reliable backend systems.',
-  'AI evaluation infrastructure.',
-  'accessible fintech for Africa.',
-  'products as Co-founder & CTO.',
+  'build reliable backend systems.',
+  'build AI evaluation infrastructure.',
+  'build accessible fintech for Africa.',
+  'build inclusive accessibility solutions.',
+  'research AI safety.',
+  'research inclusive accessibility.',
+  'build reliable digital products.',
+  'facilitate and speak at tech events.',
+  'mentor youths to build reliable careers.',
 ]
 const certsSorted = [...certifications].sort((a, b) => Number(!!a.expired) - Number(!!b.expired))
 
@@ -117,8 +122,8 @@ export default function Home() {
                 <span className="mt-1 block text-5xl sm:text-7xl">{profile.name}</span>
               </h1>
 
-              <p className="mt-5 min-h-[1.3em] font-display text-xl font-bold tracking-tight sm:text-3xl">
-                I build <Typewriter className="text-accent" phrases={HERO_PHRASES} />
+              <p className="mt-5 min-h-[2.8em] font-display text-xl font-bold leading-snug tracking-tight sm:min-h-[1.35em] sm:text-[1.65rem]">
+                I <Typewriter className="text-accent" phrases={HERO_PHRASES} />
               </p>
 
               <p className="mt-4 text-lg leading-relaxed text-muted">

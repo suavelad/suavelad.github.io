@@ -131,8 +131,9 @@ export default function Home() {
               </p>
 
               <p className="mt-4 text-lg leading-relaxed text-muted">
-                {profile.headline} with <strong className="font-semibold text-ink">{profile.years} years</strong> of
-                experience building systems at scale — {profile.proof.charAt(0).toLowerCase() + profile.proof.slice(1)}
+                {profile.headline} with <strong className="font-semibold text-ink">{profile.years} years</strong> shipping
+                systems people rely on — from a national rail platform serving 300,000+ users to fintech at 99.9% uptime
+                and AI evaluation infrastructure.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-3">

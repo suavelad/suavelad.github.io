@@ -44,7 +44,7 @@ const ROLES = [
   'Applied AI',
   'Graduate Student & Researcher at Carnegie Mellon University',
   'Co-founder & CTO',
-  'AWS Community Co-Lead',
+  'AWS User Group Kigali Co-organizer',
   'Python Rwanda Community Lead',
   'ADPList Top 100 Mentor',
 ]

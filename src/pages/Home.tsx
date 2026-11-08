@@ -16,7 +16,7 @@ import {
   workLocations,
   workshops,
 } from '../data/site'
-import { ArrowIcon, MailIcon, PhoneIcon } from '../components/Icons'
+import { ArrowIcon, MailIcon, PhoneIcon, WhatsAppIcon } from '../components/Icons'
 import RevealButton from '../components/RevealButton'
 import { socials } from '../components/Layout'
 import PublicationList from '../components/PublicationList'
@@ -178,9 +178,14 @@ export default function Home() {
                     <ul className="mt-1.5 space-y-2">
                       {profile.phones.map((ph) => (
                         <li key={ph.tel} className="flex items-center justify-between gap-3">
-                          <a href={`tel:${ph.tel}`} className="font-medium hover:text-accent">
+                          <a
+                            href={ph.whatsapp ? `https://wa.me/${ph.tel.replace('+', '')}` : `tel:${ph.tel}`}
+                            {...(ph.whatsapp ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                            className="inline-flex items-center gap-1.5 font-medium hover:text-accent"
+                          >
+                            {ph.whatsapp && <WhatsAppIcon className="h-3.5 w-3.5 text-emerald-500" />}
                             {ph.display}
-                            <span className="ml-2 text-xs font-normal text-muted">{ph.label}</span>
+                            <span className="ml-1 text-xs font-normal text-muted">{ph.label}</span>
                           </a>
                           <CopyButton text={ph.tel} label="Copy" className="rounded-md px-2 py-1 text-xs font-semibold text-accent hover:underline" />
                         </li>

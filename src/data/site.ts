@@ -10,8 +10,8 @@ export const profile = {
   affiliation: 'Carnegie Mellon University',
   email: 'sunnexajayi@gmail.com',
   phones: [
-    { label: 'Nigeria', tel: '+2348067715394', display: '+234 806 771 5394' },
-    { label: 'Rwanda', tel: '+250793150023', display: '+250 793 150 023' },
+    { label: 'Nigeria · WhatsApp only', tel: '+2348067715394', display: '+234 806 771 5394', whatsapp: true },
+    { label: 'Rwanda', tel: '+250793150023', display: '+250 793 150 023', whatsapp: false },
   ], // from your CV; alternative: sajayi@andrew.cmu.edu
   cv: '/documents/sunday-ajayi-cv.pdf', // drop your CV PDF at public/documents/
   photo: '/images/gallery/portrait-bw-hero.webp',

@@ -1,3 +1,10 @@
 node_modules
 dist
 .DS_Store
+
+# Private: original resume contains a phone number
+Sunday Ajayi CMU -R.pdf
+
+# Build artifacts
+tsconfig.tsbuildinfo
+*.tsbuildinfo

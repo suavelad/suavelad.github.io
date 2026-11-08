@@ -332,7 +332,7 @@ export const community: Org[] = [
   { org: 'YE Network', url: 'https://theyenetwork.com', logo: '/images/orgs/ye-network.webp', role: 'Founder', text: 'Founded a network focused on mentoring youths for social impact.' },
   { org: 'Python Rwanda', logo: '/images/orgs/python.svg', role: 'Community Lead', text: 'Developer engagement, workshops and growing the Python ecosystem in Rwanda — including a hands-on data visualisation workshop with Mount Kigali University that reached 100+ students.' },
   { org: 'AWS Community Student Builders, Carnegie Mellon University', logo: '/images/orgs/aws.svg', role: 'Co-Lead', text: 'Co-lead the AWS student builder community at Carnegie Mellon University, running hands-on cloud learning and build sessions for students.' },
-  { org: 'AWS User Group Kigali', logo: '/images/orgs/aws.svg', role: 'Co-Lead', text: 'Co-lead the Kigali AWS community — organising cloud learning sessions, technical workshops and AWS knowledge sharing.' },
+  { org: 'AWS User Group Kigali', logo: '/images/orgs/aws.svg', role: 'Co-organizer', text: 'Co-organize the Kigali AWS community — running cloud learning sessions, technical workshops and AWS knowledge sharing.' },
   { org: 'JCI Rwanda', role: 'Member, National Board', text: 'Manage corporate communication and programme coordination.' },
   { org: 'Africa Innovators Society, CMU Africa', logo: '/images/orgs/cmu.webp', role: 'Minister of Partnership', text: 'Partnership development, innovation activities and student engagement.' },
   { org: 'Black in Tech Lagos', role: 'Programs Chair', text: 'Designed programmes for professional development and community engagement.' },

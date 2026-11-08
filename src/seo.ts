@@ -52,7 +52,7 @@ export const pages: PageMeta[] = [
     path: '/community',
     title: 'Community, Volunteering & Mentorship | Sunday Ajayi',
     description:
-      'Community leadership: AWS Community Student Builders Co-Lead at Carnegie Mellon University, AWS User Group Kigali Co-Lead, Python Rwanda Community Lead, YE Network founder, and ADPList Top 100 mentor.',
+      'Community leadership: AWS Community Student Builders Co-Lead at Carnegie Mellon University, AWS User Group Kigali Co-organizer, Python Rwanda Community Lead, YE Network founder, and ADPList Top 100 mentor.',
     priority: 0.7,
   },
   {

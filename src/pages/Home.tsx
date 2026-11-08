@@ -114,7 +114,7 @@ export default function Home() {
               <div className="flex flex-wrap items-center gap-2">
                 <span className="inline-flex items-center gap-2 rounded-full border border-line bg-surface/90 px-3 py-1.5 text-xs font-semibold shadow-card backdrop-blur">
                   <LogoTile src="/images/orgs/cmu.webp" name="Carnegie Mellon University" size="xs" />
-                  MSc IT · Carnegie Mellon
+                  M.Sc &rsquo;27 · Carnegie Mellon University
                 </span>
                 <span className="rounded-full border border-line bg-surface/90 px-3 py-1.5 text-xs text-muted shadow-card backdrop-blur">
                   <LocalTime />

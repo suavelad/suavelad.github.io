@@ -52,6 +52,7 @@ const ROLES = [
 /** Rotating lines in the hero: everything here is backed by content on the site */
 const HERO_PHRASES = [
   'build reliable software systems.',
+  'architect scalable digital solutions.',
   'build AI evaluation infrastructure.',
   'build accessible fintech for Africa.',
   'build inclusive accessibility solutions.',

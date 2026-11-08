@@ -75,7 +75,7 @@ export default function Home() {
       {/* Hero — full-bleed: the portrait fills the right side and fades into the page (both themes) */}
       <section className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden">
         {profile.photo && (
-          <div className="relative mx-auto h-[24rem] max-w-md sm:h-[28rem] md:absolute md:inset-y-10 md:right-[max(1rem,calc((100vw-64rem)/2))] md:mx-0 md:h-auto md:w-[38%] md:max-w-[26rem] lg:w-[34%]">
+          <div className="relative mx-auto h-[24rem] max-w-md sm:h-[28rem] md:absolute md:inset-y-0 md:right-[max(0rem,calc((100vw-64rem)/2-2rem))] md:mx-0 md:h-auto md:w-[46%] md:max-w-[34rem] lg:w-[42%]">
             <img
               src={profile.photo}
               alt={profile.photoAlt}
@@ -95,7 +95,7 @@ export default function Home() {
         )}
 
         <div className="relative mx-auto max-w-5xl px-4 pb-14 sm:px-6 md:flex md:min-h-[40rem] md:items-center md:py-20">
-            <div className="-mt-14 max-w-xl md:mt-0">
+            <div className="-mt-14 max-w-xl md:mt-0 md:max-w-[30rem] lg:max-w-[32rem]">
               <div className="flex flex-wrap items-center gap-2">
                 <span className="inline-flex items-center gap-2 rounded-full border border-line bg-surface/90 px-3 py-1.5 text-xs font-semibold shadow-card backdrop-blur">
                   <LogoTile src="/images/orgs/cmu.webp" name="Carnegie Mellon University" size="xs" />
@@ -168,17 +168,23 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Experience across — credibility strip */}
+      {/* Experience across — coloured logos, slow continuous scroll (pauses on hover; static for reduced motion) */}
       <section id="experience-across" aria-label="Organisations I have worked with" className="scroll-mt-16 border-y border-line py-7">
         <p className="text-center text-[11px] font-semibold uppercase tracking-[0.22em] text-muted">Experience across</p>
-        <ul className="mt-5 flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
-          {experience.map((e) => (
-            <li key={e.company} className="flex items-center gap-2.5 opacity-80 grayscale transition hover:opacity-100 hover:grayscale-0">
-              <LogoTile src={e.logo} name={e.company.split(',')[0]} size="sm" />
-              <span className="text-sm font-semibold">{e.company.split(',')[0]}</span>
-            </li>
-          ))}
-        </ul>
+        <div className="marquee mt-5 overflow-hidden">
+          <div className="marquee-track flex w-max items-center">
+            {[0, 1].map((dup) => (
+              <ul key={dup} aria-hidden={dup === 1 ? true : undefined} className="flex shrink-0 items-center gap-12 pr-12">
+                {experience.map((e) => (
+                  <li key={e.company} className="flex items-center gap-3 whitespace-nowrap">
+                    <LogoTile src={e.logo} name={e.company.split(',')[0]} size="sm" />
+                    <span className="text-base font-semibold">{e.company.split(',')[0]}</span>
+                  </li>
+                ))}
+              </ul>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* 01 — Experience */}

@@ -86,11 +86,21 @@ body::before {
 }
 .dark body::before { opacity: 0.06; }
 
-/* Hero portrait: soft oval vignette that melts into the page colour (both themes) */
+/* Hero portrait: no frame — wide soft fades on every edge so it melts into the page */
 .hero-photo {
-  -webkit-mask-image: radial-gradient(closest-side at 50% 46%, #000 62%, transparent 100%);
-  mask-image: radial-gradient(closest-side at 50% 46%, #000 62%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 22%, #000 80%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, #000 14%, #000 70%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(to right, transparent 0%, #000 22%, #000 80%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, #000 14%, #000 70%, transparent 100%);
+  mask-composite: intersect;
 }
+
+/* Logo strip marquee */
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.marquee-track { animation: marquee 32s linear infinite; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+.marquee { -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent); }
 
 html, body { overflow-x: clip; }
 
@@ -102,5 +112,9 @@ html { scroll-padding-top: 5rem; }
 @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 
 @media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; width: auto; justify-content: center; }
+  .marquee-track > ul { flex-wrap: wrap; justify-content: center; row-gap: 1rem; }
+  .marquee-track > [aria-hidden="true"] { display: none; }
+  .marquee { -webkit-mask-image: none; mask-image: none; }
   * { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
 }

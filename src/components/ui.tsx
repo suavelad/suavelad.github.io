@@ -5,23 +5,41 @@ import { ArrowIcon } from './Icons'
 
 export function PageHeader({ eyebrow, title, children }: { eyebrow: string; title: string; children?: ReactNode }) {
   return (
-    <header className="border-b border-line pb-8 pt-10 sm:pb-10 sm:pt-20">
-      <p className="text-sm font-medium uppercase tracking-[0.14em] text-accent">{eyebrow}</p>
-      <h1 className="mt-3 text-3xl font-extrabold sm:text-5xl">{title}</h1>
-      {children && <div className="mt-5 max-w-2xl text-lg leading-relaxed text-muted">{children}</div>}
+    <header className="border-b border-line pb-10 pt-12 sm:pb-14 sm:pt-24">
+      <p className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+        <span className="h-px w-8 bg-accent" aria-hidden="true" />
+        {eyebrow}
+      </p>
+      <h1 className="serif mt-5 text-5xl leading-[1.02] sm:text-7xl">{title}</h1>
+      {children && <div className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">{children}</div>}
     </header>
   )
 }
 
 export const slug = (t: string) => t.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
 
-export function Section({ title, children, action }: { title: string; children: ReactNode; action?: ReactNode }) {
+export function Section({
+  title,
+  children,
+  action,
+  index,
+}: {
+  title: string
+  children: ReactNode
+  action?: ReactNode
+  /** Editorial section number, e.g. "01" */
+  index?: string
+}) {
   return (
-    <section id={slug(title)} className="py-10 sm:py-12">
-      <div className="mb-6 flex items-end justify-between gap-4">
-        <div>
-          <span className="mb-3 block h-1 w-8 rounded-full bg-accent" aria-hidden="true" />
-          <h2 className="text-2xl font-bold">{title}</h2>
+    <section id={slug(title)} className="border-t border-line py-14 first:border-t-0 sm:py-20">
+      <div className="mb-8 flex flex-wrap items-end justify-between gap-x-6 gap-y-3 sm:mb-10">
+        <div className="flex items-baseline gap-4 sm:gap-6">
+          {index && (
+            <span className="font-mono text-xs tracking-widest text-accent" aria-hidden="true">
+              {index}
+            </span>
+          )}
+          <h2 className="serif text-4xl leading-none sm:text-5xl">{title}</h2>
         </div>
         {action}
       </div>

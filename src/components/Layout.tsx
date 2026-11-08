@@ -134,7 +134,7 @@ export default function Layout() {
         }`}
       >
         <div className="mx-auto flex h-16 max-w-5xl items-center justify-between gap-4 px-4 sm:px-6">
-          <NavLink to="/" className="font-display text-lg font-extrabold tracking-tight">
+          <NavLink to="/" className="serif text-2xl leading-none">
             {profile.name}
           </NavLink>
 
@@ -223,7 +223,7 @@ export default function Layout() {
       <footer className="mt-16 border-t border-line bg-surface">
         <div className="mx-auto grid max-w-5xl gap-8 px-4 py-10 sm:grid-cols-[1.4fr_1fr] sm:px-6">
           <div>
-            <p className="font-display text-lg font-extrabold">{profile.name}</p>
+            <p className="serif text-3xl">{profile.name}</p>
             <p className="mt-1 text-sm text-muted">{profile.headline}</p>
             <a href={`mailto:${profile.email}`} className="mt-4 inline-block text-sm font-medium text-accent hover:underline">
               {profile.email}

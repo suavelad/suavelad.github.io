@@ -5,13 +5,10 @@ import { ArrowIcon } from './Icons'
 
 export function PageHeader({ eyebrow, title, children }: { eyebrow: string; title: string; children?: ReactNode }) {
   return (
-    <header className="border-b border-line pb-10 pt-12 sm:pb-14 sm:pt-24">
-      <p className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.2em] text-accent">
-        <span className="h-px w-8 bg-accent" aria-hidden="true" />
-        {eyebrow}
-      </p>
-      <h1 className="serif mt-5 text-5xl leading-[1.02] sm:text-7xl">{title}</h1>
-      {children && <div className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">{children}</div>}
+    <header className="pb-2 pt-12 sm:pt-16">
+      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">{eyebrow}</p>
+      <h1 className="mt-3 font-display text-4xl font-extrabold leading-[1.08] tracking-tight sm:text-5xl">{title}</h1>
+      {children && <div className="mt-4 max-w-2xl leading-relaxed text-muted">{children}</div>}
     </header>
   )
 }
@@ -23,24 +20,28 @@ export function Section({
   children,
   action,
   index,
+  id,
 }: {
   title: string
   children: ReactNode
   action?: ReactNode
   /** Editorial section number, e.g. "01" */
   index?: string
+  /** Override the anchor id (defaults to a slug of the title) */
+  id?: string
 }) {
   return (
-    <section id={slug(title)} className="border-t border-line py-14 first:border-t-0 sm:py-20">
-      <div className="mb-8 flex flex-wrap items-end justify-between gap-x-6 gap-y-3 sm:mb-10">
-        <div className="flex items-baseline gap-4 sm:gap-6">
+    <section id={id ?? slug(title)} className="scroll-mt-20 py-10 sm:py-12">
+      <div className="mb-6 flex items-center gap-4">
+        <h2 className="flex shrink-0 items-baseline gap-3 text-xs font-semibold uppercase tracking-[0.2em]">
           {index && (
-            <span className="font-mono text-xs tracking-widest text-accent" aria-hidden="true">
+            <span className="font-mono text-accent" aria-hidden="true">
               {index}
             </span>
           )}
-          <h2 className="serif text-4xl leading-none sm:text-5xl">{title}</h2>
-        </div>
+          {title}
+        </h2>
+        <span className="h-px flex-1 bg-line" aria-hidden="true" />
         {action}
       </div>
       {children}
@@ -68,7 +69,7 @@ export function Badge({ children }: { children: ReactNode }) {
 
 export function MoreLink({ to, children }: { to: string; children: ReactNode }) {
   return (
-    <Link to={to} className="inline-flex shrink-0 items-center gap-1 whitespace-nowrap text-sm font-medium text-accent hover:underline">
+    <Link to={to} className="inline-flex shrink-0 items-center gap-1 whitespace-nowrap text-xs font-semibold text-accent hover:underline">
       {children} <ArrowIcon />
     </Link>
   )
@@ -89,9 +90,9 @@ export const btnGhost =
   'inline-flex items-center gap-2 rounded-lg border border-line bg-surface px-5 py-2.5 text-sm font-semibold transition hover:-translate-y-px hover:border-accent hover:text-accent active:translate-y-0'
 
 /** Square-ish white tile holding an org/product logo; falls back to initials. */
-export function LogoTile({ src, name, size = 'md' }: { src?: string; name: string; size?: 'sm' | 'md' }) {
-  // sm = fixed square (list rows align); md = may widen for wordmarks like ECHO
-  const h = size === 'sm' ? 'h-10 w-10' : 'h-12 min-w-12'
+export function LogoTile({ src, name, size = 'md' }: { src?: string; name: string; size?: 'xs' | 'sm' | 'md' | 'lg' }) {
+  // sm/lg = fixed squares (list rows align); md = may widen for wordmarks like ECHO
+  const h = size === 'xs' ? 'h-5 w-5 !p-0.5 !rounded-md' : size === 'sm' ? 'h-10 w-10' : size === 'lg' ? 'h-12 w-12' : 'h-12 min-w-12'
   if (!src) {
     const initials = name
       .replace(/[^A-Za-z0-9 ]/g, ' ')

@@ -5,7 +5,6 @@
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Manrope", "Inter", ui-sans-serif, sans-serif;
-  --font-serif: "Instrument Serif", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
 }
 
 /*
@@ -75,10 +74,6 @@ html.theme-switching, html.theme-switching * {
   transition: background-color 200ms ease, border-color 200ms ease, color 200ms ease !important;
 }
 
-/* Editorial serif headings */
-.serif { font-family: var(--font-serif); font-weight: 400; letter-spacing: -0.01em; }
-.serif em, em.serif { font-style: italic; }
-
 /* Very faint paper grain for depth (decorative, ignored by assistive tech) */
 body::before {
   content: "";
@@ -91,11 +86,13 @@ body::before {
 }
 .dark body::before { opacity: 0.06; }
 
-/* Slow logo marquee; pauses on hover/focus; static for reduced motion */
-@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-.marquee-track { animation: marquee 40s linear infinite; }
-.marquee:hover .marquee-track, .marquee:focus-within .marquee-track { animation-play-state: paused; }
-.marquee { mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent); }
+/* Hero portrait: soft oval vignette that melts into the page colour (both themes) */
+.hero-photo {
+  -webkit-mask-image: radial-gradient(closest-side at 50% 46%, #000 62%, transparent 100%);
+  mask-image: radial-gradient(closest-side at 50% 46%, #000 62%, transparent 100%);
+}
+
+html, body { overflow-x: clip; }
 
 /* Gentle fade-up when a page or the mobile menu appears */
 @keyframes page-enter { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
@@ -105,8 +102,5 @@ html { scroll-padding-top: 5rem; }
 @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 
 @media (prefers-reduced-motion: reduce) {
-  .marquee-track { animation: none; flex-wrap: wrap; width: auto; }
-  .marquee-track > [aria-hidden="true"] { display: none; }
-  .marquee { mask-image: none; }
   * { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
 }

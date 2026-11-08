@@ -8,3 +8,6 @@ Sunday Ajayi CMU -R.pdf
 # Build artifacts
 tsconfig.tsbuildinfo
 *.tsbuildinfo
+
+# Original photos (web versions live in public/images/gallery)
+photos-original/

@@ -10,7 +10,8 @@ export const profile = {
   affiliation: 'Carnegie Mellon University',
   email: 'sunnexajayi@gmail.com', // from your CV; alternative: sajayi@andrew.cmu.edu
   cv: '/documents/sunday-ajayi-cv.pdf', // drop your CV PDF at public/documents/
-  photo: '/images/profile.webp',
+  photo: '/images/gallery/portrait-bw-hero.webp',
+  photoAlt: 'Black-and-white portrait of Sunday Ajayi wearing glasses, arms crossed',
   /** Big hero statement + supporting line */
   pitch: 'I build reliable backend and AI systems.',
   proof: 'From a national rail platform serving 300,000+ users to AI evaluation infrastructure.',
@@ -149,6 +150,8 @@ export type Project = {
   link?: string
   linkLabel?: string
   logo?: string // square logo in public/images/products/
+  /** Optional square mark for compact rows (when `logo` is a wide wordmark) */
+  logoMark?: string
   /** Your role, e.g. 'Co-founder & CTO' */
   role?: string
 }
@@ -176,6 +179,7 @@ export const products: Project[] = [
     link: 'https://letusecho.com',
     linkLabel: 'letusecho.com',
     logo: '/images/products/echo.webp',
+    logoMark: '/images/products/echo-mark.webp',
   },
   {
     name: 'TERNKONNECT',
@@ -344,3 +348,13 @@ export const mentorshipAreas = [
   'CV, LinkedIn & interview prep',
   'Learning roadmaps & career transitions',
 ]
+
+/** Workshop photos (Community page + homepage) */
+export const workshop = {
+  title: 'Python Rwanda × Mount Kigali University — data visualisation workshop',
+  summary: 'A hands-on session for 100+ students on choosing the right chart and spotting misleading visuals.',
+  photos: [
+    { src: '/images/gallery/workshop-slides.webp', alt: 'Sunday presenting a slide titled “Same data: a 4% gap looks huge or honest” to a computer lab of students' },
+    { src: '/images/gallery/workshop-class.webp', alt: 'Students at computers while Sunday explains chart choices at the whiteboard' },
+  ],
+}

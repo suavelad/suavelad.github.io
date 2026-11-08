@@ -14,16 +14,36 @@ import {
   research,
   skills,
   workLocations,
-  workshop,
+  workshops,
 } from '../data/site'
 import { ArrowIcon, MailIcon } from '../components/Icons'
 import { socials } from '../components/Layout'
 import PublicationList from '../components/PublicationList'
 import Typewriter from '../components/Typewriter'
+import HeroSlides from '../components/HeroSlides'
 import LocalTime from '../components/LocalTime'
 import { Badge, ExtLink, LogoTile, MoreLink, Section, btnGhost, btnPrimary } from '../components/ui'
 
 const industryProjects = projects.filter((p) => p.status !== 'Research')
+
+/** Hero background photos (cross-fade). First one loads eagerly. */
+const HERO_SLIDES = [
+  { src: '/images/gallery/hero-color.webp', w: 840, h: 1063, pos: '50% 18%', alt: 'Portrait of Sunday Ajayi in a black shirt, arms crossed' },
+  { src: '/images/gallery/portrait-bw-hero.webp', w: 839, h: 1004, pos: '50% 22%', alt: 'Black-and-white portrait of Sunday Ajayi wearing glasses, arms crossed' },
+  { src: '/images/gallery/hero-outdoor.webp', w: 840, h: 1117, pos: '50% 42%', alt: 'Sunday Ajayi smiling outdoors in a black leather jacket' },
+  { src: '/images/gallery/hero-evening.webp', w: 840, h: 1117, pos: '50% 55%', alt: 'Sunday Ajayi laughing at an evening garden event in Kigali' },
+]
+
+/** Roles ribbon at the bottom of the hero — each backed by content on the site */
+const ROLES = [
+  'Backend Engineer',
+  'Applied AI',
+  'Researcher at Carnegie Mellon',
+  'Co-founder & CTO',
+  'AWS Community Co-Lead',
+  'Python Rwanda Community Lead',
+  'ADPList Top 100 Mentor',
+]
 
 /** Rotating lines in the hero: everything here is backed by content on the site */
 const HERO_PHRASES = [
@@ -72,30 +92,16 @@ function WorkRow({ p }: { p: Project }) {
 export default function Home() {
   return (
     <>
-      {/* Hero — full-bleed: the portrait fills the right side and fades into the page (both themes) */}
+      {/* Hero — full-screen, cross-fading photos behind the text (works in both themes) */}
       <section className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden">
-        {profile.photo && (
-          <div className="relative mx-auto h-[24rem] max-w-md sm:h-[28rem] md:absolute md:inset-y-0 md:right-[max(0rem,calc((100vw-64rem)/2-2rem))] md:mx-0 md:h-auto md:w-[46%] md:max-w-[34rem] lg:w-[42%]">
-            <img
-              src={profile.photo}
-              alt={profile.photoAlt}
-              width={839}
-              height={1004}
-              fetchPriority="high"
-              className="hero-photo h-full w-full object-cover object-[50%_20%]"
-            />
-            <div className="absolute right-4 top-4 z-10 flex items-center gap-2.5 rounded-xl border border-line bg-surface/90 px-3.5 py-2 text-sm font-medium shadow-card backdrop-blur md:bottom-6 md:right-0 md:top-auto md:px-4 md:py-2.5">
-              <span className="relative flex h-2.5 w-2.5" aria-hidden="true">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-60 motion-reduce:hidden" />
-                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500" />
-              </span>
-              Available for hire
-            </div>
-          </div>
-        )}
+        <HeroSlides slides={HERO_SLIDES} className="absolute inset-y-0 right-0 w-full md:w-[66%]" />
+        {/* Readability: page-coloured wash on the text side, fading to clear over the photo */}
+        <div className="pointer-events-none absolute inset-0 bg-bg/75 md:bg-transparent md:bg-gradient-to-r md:from-bg md:from-[34%] md:via-bg/70 md:via-[52%] md:to-bg/5" aria-hidden="true" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-bg to-transparent" aria-hidden="true" />
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-bg/70 to-transparent" aria-hidden="true" />
 
-        <div className="relative mx-auto max-w-5xl px-4 pb-14 sm:px-6 md:flex md:min-h-[40rem] md:items-center md:py-20">
-            <div className="-mt-14 max-w-xl md:mt-0 md:max-w-[30rem] lg:max-w-[32rem]">
+        <div className="relative mx-auto flex min-h-[calc(100svh-4rem)] max-w-5xl items-center px-4 pb-28 pt-12 sm:px-6">
+          <div className="max-w-xl md:max-w-[34rem]">
               <div className="flex flex-wrap items-center gap-2">
                 <span className="inline-flex items-center gap-2 rounded-full border border-line bg-surface/90 px-3 py-1.5 text-xs font-semibold shadow-card backdrop-blur">
                   <LogoTile src="/images/orgs/cmu.webp" name="Carnegie Mellon University" size="xs" />
@@ -155,16 +161,30 @@ export default function Home() {
                 </li>
               </ul>
             </div>
+        </div>
 
-          <a
-            href="#experience-across"
-            aria-label="Scroll down"
-            className="absolute bottom-6 left-1/2 hidden h-11 w-11 -translate-x-1/2 items-center justify-center rounded-full border border-line bg-surface/80 text-muted transition hover:text-accent md:flex"
-          >
-            <svg viewBox="0 0 24 24" className="h-5 w-5 motion-safe:animate-bounce" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <path d="m6 9 6 6 6-6" />
-            </svg>
-          </a>
+        <div className="absolute bottom-24 left-1/2 hidden -translate-x-1/2 items-center gap-2.5 rounded-xl border border-line bg-surface/85 px-4 py-2.5 text-sm font-medium shadow-card backdrop-blur sm:flex md:bottom-28 md:left-auto md:right-[max(1.5rem,calc((100vw-64rem)/2))] md:translate-x-0 md:mr-28">
+          <span className="relative flex h-2.5 w-2.5" aria-hidden="true">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-60 motion-reduce:hidden" />
+            <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500" />
+          </span>
+          Available for hire
+        </div>
+
+        {/* Roles ribbon */}
+        <div className="marquee absolute inset-x-0 bottom-0 overflow-hidden border-t border-line bg-bg/70 py-4 backdrop-blur">
+          <div className="marquee-track flex w-max items-center">
+            {[0, 1].map((dup) => (
+              <ul key={dup} aria-hidden={dup === 1 ? true : undefined} className="flex shrink-0 items-center">
+                {ROLES.map((r) => (
+                  <li key={r} className="flex items-center whitespace-nowrap font-display text-xl font-semibold tracking-tight text-ink/85 sm:text-2xl">
+                    <span className="px-6 sm:px-8">{r}</span>
+                    <span className="h-2 w-2 rounded-full bg-accent" aria-hidden="true" />
+                  </li>
+                ))}
+              </ul>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -288,22 +308,22 @@ export default function Home() {
             </li>
           ))}
         </ul>
-        <figure className="mt-5 overflow-hidden rounded-2xl border border-line bg-surface shadow-card sm:grid sm:grid-cols-[14rem_1fr]">
+        <figure className="mt-5 overflow-hidden rounded-2xl border border-line bg-surface shadow-card sm:grid sm:grid-cols-[18rem_1fr]">
           <img
-            src={workshop.photos[0].src}
-            alt={workshop.photos[0].alt}
-            width={900}
-            height={1196}
+            src={workshops[0].photos[0].src}
+            alt={workshops[0].photos[0].alt}
+            width={workshops[0].photos[0].w}
+            height={workshops[0].photos[0].h}
             loading="lazy"
             decoding="async"
             className="aspect-[4/3] w-full object-cover sm:aspect-auto sm:h-full"
           />
           <figcaption className="p-5">
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">Teaching</p>
-            <p className="mt-2 font-semibold leading-snug">{workshop.title}</p>
-            <p className="mt-1.5 text-sm text-muted">{workshop.summary}</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">Facilitation</p>
+            <p className="mt-2 font-semibold leading-snug">{workshops[0].title}</p>
+            <p className="mt-1.5 text-sm text-muted">{workshops[0].summary}</p>
             <Link to="/community" className="mt-3 inline-block text-sm font-semibold text-accent hover:underline">
-              See the workshop
+              See all workshops
             </Link>
           </figcaption>
         </figure>

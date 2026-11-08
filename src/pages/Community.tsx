@@ -1,4 +1,4 @@
-import { community, links, mentorshipAreas, volunteering, workshop } from '../data/site'
+import { community, links, mentorshipAreas, volunteering, workshops } from '../data/site'
 import type { Org } from '../data/site'
 import { ArrowIcon } from '../components/Icons'
 import { Card, ExtLink, LogoTile, PageHeader, Section, btnPrimary } from '../components/ui'
@@ -41,22 +41,28 @@ export default function Community() {
       </Section>
 
       <Section title="Workshops">
-        <div className="grid gap-4 sm:grid-cols-2">
-          {workshop.photos.map((ph) => (
-            <img
-              key={ph.src}
-              src={ph.src}
-              alt={ph.alt}
-              width={900}
-              height={1196}
-              loading="lazy"
-              decoding="async"
-              className="aspect-[4/5] w-full rounded-2xl border border-line object-cover shadow-card"
-            />
+        <div className="space-y-10">
+          {workshops.map((w) => (
+            <article key={w.title}>
+              <h3 className="font-semibold">{w.title}</h3>
+              <p className="mt-1 text-sm text-muted">{w.summary}</p>
+              <div className="mt-4 grid gap-3 sm:grid-cols-[1.4fr_1fr]">
+                {w.photos.map((ph) => (
+                  <img
+                    key={ph.src}
+                    src={ph.src}
+                    alt={ph.alt}
+                    width={ph.w}
+                    height={ph.h}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-64 w-full rounded-2xl border border-line object-cover shadow-card sm:h-72"
+                  />
+                ))}
+              </div>
+            </article>
           ))}
         </div>
-        <p className="mt-4 font-semibold">{workshop.title}</p>
-        <p className="mt-1 text-sm text-muted">{workshop.summary}</p>
       </Section>
 
       <Section title="Volunteering">

@@ -349,12 +349,22 @@ export const mentorshipAreas = [
   'Learning roadmaps & career transitions',
 ]
 
-/** Workshop photos (Community page + homepage) */
-export const workshop = {
-  title: 'Python Rwanda × Mount Kigali University — data visualisation workshop',
-  summary: 'A hands-on session for 100+ students on choosing the right chart and spotting misleading visuals.',
-  photos: [
-    { src: '/images/gallery/workshop-slides.webp', alt: 'Sunday presenting a slide titled “Same data: a 4% gap looks huge or honest” to a computer lab of students' },
-    { src: '/images/gallery/workshop-class.webp', alt: 'Students at computers while Sunday explains chart choices at the whiteboard' },
-  ],
-}
+/** Workshops & facilitation (Community page + homepage). First entry is featured on the homepage. */
+export const workshops = [
+  {
+    title: 'AWS User Group Kigali — workshop facilitation',
+    summary: 'Facilitated a hands-on cloud workshop for the AWS User Group Kigali community, hosted at AmaliTech.',
+    photos: [
+      { src: '/images/gallery/aws-ug-group.webp', w: 1100, h: 825, alt: 'Group photo of AWS User Group Kigali workshop participants at AmaliTech, Kigali' },
+      { src: '/images/gallery/aws-ug-session.webp', w: 900, h: 1196, alt: 'Participants with laptops in discussion during an AWS User Group Kigali session' },
+    ],
+  },
+  {
+    title: 'Python Rwanda × Mount Kigali University — data visualisation workshop',
+    summary: 'A hands-on session for 100+ students on choosing the right chart and spotting misleading visuals.',
+    photos: [
+      { src: '/images/gallery/workshop-slides.webp', w: 900, h: 1196, alt: 'Sunday presenting a slide titled “Same data: a 4% gap looks huge or honest” to a computer lab of students' },
+      { src: '/images/gallery/workshop-class.webp', w: 900, h: 1196, alt: 'Students at computers while Sunday explains chart choices at the whiteboard' },
+    ],
+  },
+]

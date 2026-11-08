@@ -31,17 +31,15 @@ export function Section({
   id?: string
 }) {
   return (
-    <section id={id ?? slug(title)} className="scroll-mt-20 py-10 sm:py-12">
-      <div className="mb-6 flex items-center gap-4">
-        <h2 className="flex shrink-0 items-baseline gap-3 text-xs font-semibold uppercase tracking-[0.2em]">
-          {index && (
-            <span className="font-mono text-accent" aria-hidden="true">
-              {index}
-            </span>
-          )}
-          {title}
-        </h2>
-        <span className="h-px flex-1 bg-line" aria-hidden="true" />
+    <section id={id ?? slug(title)} className="scroll-mt-20 py-10 sm:py-14">
+      <div className="mb-7 flex flex-wrap items-end justify-between gap-x-6 gap-y-2">
+        <div>
+          <span className="mb-3 block h-1 w-10 rounded-full bg-accent" aria-hidden="true" />
+          <h2 className="font-display text-3xl font-extrabold tracking-tight sm:text-[2.1rem]">
+            {index && <span className="sr-only">{index} </span>}
+            {title}
+          </h2>
+        </div>
         {action}
       </div>
       {children}
@@ -69,7 +67,7 @@ export function Badge({ children }: { children: ReactNode }) {
 
 export function MoreLink({ to, children }: { to: string; children: ReactNode }) {
   return (
-    <Link to={to} className="inline-flex shrink-0 items-center gap-1 whitespace-nowrap text-xs font-semibold text-accent hover:underline">
+    <Link to={to} className="inline-flex shrink-0 items-center gap-1 whitespace-nowrap text-sm font-semibold text-accent hover:underline">
       {children} <ArrowIcon />
     </Link>
   )

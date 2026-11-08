@@ -19,7 +19,6 @@ import {
 import { ArrowIcon, MailIcon, PhoneIcon, WhatsAppIcon } from '../components/Icons'
 import RevealButton from '../components/RevealButton'
 import { socials } from '../components/Layout'
-import PublicationList from '../components/PublicationList'
 import Typewriter from '../components/Typewriter'
 import HeroSlides from '../components/HeroSlides'
 import LocalTime from '../components/LocalTime'
@@ -64,32 +63,31 @@ const HERO_PHRASES = [
 ]
 const certsSorted = [...certifications].sort((a, b) => Number(!!a.expired) - Number(!!b.expired))
 
-/** Compact product / project row: logo, name, role, one-liner, link */
-function WorkRow({ p }: { p: Project }) {
+/** Compact product / project card: logo, name + status, role, one-liner, link */
+function WorkCard({ p }: { p: Project }) {
   const inner = (
     <>
-      <LogoTile src={p.logoMark ?? p.logo} name={p.name} size="lg" />
-      <div className="min-w-0 flex-1">
-        <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1">
-          <h3 className="font-semibold leading-snug transition group-hover:text-accent">{p.name}</h3>
-          <Badge>{p.status}</Badge>
-        </div>
-        <p className="text-sm text-muted">
-          {p.role ? <span className="font-medium text-accent">{p.role}</span> : p.category}
-          {p.role && <span aria-hidden="true"> · </span>}
-          {p.role && p.category}
-        </p>
-        <p className="mt-1.5 text-sm leading-relaxed text-muted">{p.text}</p>
-        {p.linkLabel && (
-          <p className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-accent">
-            {p.linkLabel} <ArrowIcon className="h-3 w-3" />
+      <div className="flex items-start gap-4">
+        <LogoTile src={p.logoMark ?? p.logo} name={p.name} size="lg" />
+        <div className="min-w-0 flex-1">
+          <div className="flex items-center justify-between gap-2">
+            <h3 className="font-semibold leading-snug transition group-hover:text-accent">{p.name}</h3>
+            <Badge>{p.status}</Badge>
+          </div>
+          <p className="mt-0.5 text-sm text-muted">
+            {p.role ? <span className="font-medium text-accent">{p.role}</span> : p.category}
           </p>
-        )}
+        </div>
       </div>
+      <p className="mt-3 line-clamp-2 text-sm leading-relaxed text-muted">{p.text}</p>
+      {p.linkLabel && (
+        <p className="mt-auto inline-flex items-center gap-1 pt-3 text-xs font-semibold text-accent">
+          {p.linkLabel} <ArrowIcon className="h-3 w-3" />
+        </p>
+      )}
     </>
   )
-  const cls =
-    'group -mx-4 flex gap-4 rounded-2xl px-4 py-4 transition sm:-mx-5 sm:px-5 lg:hover:bg-surface lg:hover:shadow-card'
+  const cls = 'group flex flex-col rounded-xl border border-line bg-surface p-5 transition hover:-translate-y-0.5 hover:border-accent/50'
   return p.link ? (
     <ExtLink href={p.link} className={cls}>
       {inner}
@@ -222,58 +220,78 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 01 — Experience */}
+      {/* Experience — two-column grid */}
       <Section index="01" title="Experience" action={<MoreLink to="/professional">Full career</MoreLink>}>
-        <ol className="space-y-1">
+        <ol className="grid gap-x-10 sm:grid-cols-2">
           {experience.map((e) => (
-            <li
-              key={e.company + e.role}
-              className="-mx-4 grid gap-1 rounded-2xl px-4 py-4 transition sm:-mx-5 sm:grid-cols-[7.5rem_1fr] sm:gap-5 sm:px-5 lg:hover:bg-surface lg:hover:shadow-card"
-            >
-              <p className="pt-0.5 font-mono text-[11px] uppercase tracking-wide text-muted">{e.period}</p>
-              <div className="flex gap-4">
-                <LogoTile src={e.logo} name={e.company.split(',')[0]} size="sm" />
-                <div className="min-w-0">
-                  <h3 className="font-semibold leading-snug">
-                    {e.role} <span className="font-normal text-muted">· {e.company.split(',')[0]}</span>
-                  </h3>
-                  {e.highlight && <p className="mt-1 text-sm font-medium text-accent">{e.highlight}</p>}
-                  {e.tech && <p className="mt-1.5 text-xs text-muted">{e.tech.join(' · ')}</p>}
+            <li key={e.company + e.role} className="flex gap-4 border-t border-line py-5">
+              <LogoTile src={e.logo} name={e.company.split(',')[0]} size="lg" />
+              <div className="min-w-0 flex-1">
+                <div className="flex items-baseline justify-between gap-3">
+                  <h3 className="font-semibold leading-snug">{e.company.split(',')[0]}</h3>
+                  <span className="shrink-0 text-xs text-muted">{e.period}</span>
                 </div>
+                <p className="text-sm text-muted">{e.role}</p>
+                {e.highlight && <p className="mt-1.5 text-sm font-medium text-accent">{e.highlight}</p>}
               </div>
             </li>
           ))}
         </ol>
       </Section>
 
-      {/* 03 — Products */}
+      {/* Products — two-column compact cards */}
       <Section index="02" title="Products" action={<MoreLink to="/professional">All work</MoreLink>}>
-        <div className="space-y-1">
-          {products.map((p) => (
-            <WorkRow key={p.name} p={p} />
-          ))}
-          {industryProjects.map((p) => (
-            <WorkRow key={p.name} p={p} />
+        <div className="grid gap-3 sm:grid-cols-2">
+          {[...products, ...industryProjects].map((p) => (
+            <WorkCard key={p.name} p={p} />
           ))}
         </div>
       </Section>
 
-      {/* 04 — Research & publications */}
-      <Section index="03" title="Research" action={<MoreLink to="/publications">Publications</MoreLink>}>
-        <p className="mb-5 leading-relaxed text-muted">{research.statement[0]}</p>
-        <PublicationList items={[...publications].sort((a, b) => b.year - a.year).slice(0, 3)} />
+      {/* Research — two-column compact cards */}
+      <Section index="03" title="Research" action={<MoreLink to="/research">All research</MoreLink>}>
+        <p className="mb-6 max-w-3xl leading-relaxed text-muted">{research.statement[0]}</p>
+        <div className="grid gap-3 sm:grid-cols-2">
+          {[...publications]
+            .sort((a, b) => b.year - a.year)
+            .map((pub) => (
+              <article key={pub.title} className="flex flex-col rounded-xl border border-line bg-surface p-5 transition hover:border-accent/50">
+                <div className="flex items-center justify-between gap-3">
+                  <span className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">Publication · {pub.year}</span>
+                  <Badge>{pub.status}</Badge>
+                </div>
+                <h3 className="mt-3 font-semibold leading-snug">
+                  {pub.url ? (
+                    <ExtLink href={pub.url} className="hover:text-accent">
+                      {pub.title}
+                    </ExtLink>
+                  ) : (
+                    pub.title
+                  )}
+                </h3>
+                <p className="mt-1.5 line-clamp-1 text-sm text-muted">{pub.authors}</p>
+                <p className="mt-auto pt-3 text-xs italic text-muted">{pub.venue}</p>
+              </article>
+            ))}
+        </div>
       </Section>
 
-      {/* 05 — Skills */}
-      <Section index="04" title="Skills">
-        <dl className="divide-y divide-line border-y border-line">
+      {/* Skills — compact cards with chips */}
+      <Section index="04" title="Skills" action={<MoreLink to="/professional">Professional</MoreLink>}>
+        <div className="grid gap-3 sm:grid-cols-2">
           {skills.map((g) => (
-            <div key={g.group} className="grid gap-1 py-3 sm:grid-cols-[8.5rem_1fr] sm:gap-4">
-              <dt className="text-sm font-semibold">{g.group}</dt>
-              <dd className="text-sm leading-relaxed text-muted">{g.items.join(' · ')}</dd>
+            <div key={g.group} className="rounded-xl border border-line bg-surface p-4">
+              <h3 className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">{g.group}</h3>
+              <ul className="mt-3 flex flex-wrap gap-1.5">
+                {g.items.map((it) => (
+                  <li key={it} className="rounded-md bg-surface-2 px-2 py-1 text-xs font-medium text-ink/85">
+                    {it}
+                  </li>
+                ))}
+              </ul>
             </div>
           ))}
-        </dl>
+        </div>
       </Section>
 
       {/* 06 — Certifications & awards */}

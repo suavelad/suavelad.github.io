@@ -109,8 +109,8 @@ export default function Home() {
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-bg to-transparent" aria-hidden="true" />
         <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-bg/70 to-transparent" aria-hidden="true" />
 
-        <div className="relative mx-auto flex min-h-[calc(100svh-4rem)] max-w-5xl items-center px-4 pb-28 pt-12 sm:px-6">
-          <div className="max-w-xl md:max-w-[34rem]">
+        <div className="relative mx-auto flex min-h-[calc(100svh-4rem)] max-w-7xl items-center px-4 pb-28 pt-12 sm:px-6 lg:px-10">
+          <div className="max-w-xl md:max-w-[38rem] lg:max-w-[40rem]">
               <div className="flex flex-wrap items-center gap-2">
                 <span className="inline-flex items-center gap-2 rounded-full border border-line bg-surface/90 px-3 py-1.5 text-xs font-semibold shadow-card backdrop-blur">
                   <LogoTile src="/images/orgs/cmu.webp" name="Carnegie Mellon University" size="xs" />
@@ -196,7 +196,7 @@ export default function Home() {
             </div>
         </div>
 
-        <div className="absolute bottom-24 left-1/2 hidden -translate-x-1/2 items-center gap-2.5 rounded-xl border border-line bg-surface/85 px-4 py-2.5 text-sm font-medium shadow-card backdrop-blur sm:flex md:bottom-28 md:left-auto md:right-[max(1.5rem,calc((100vw-64rem)/2))] md:translate-x-0 md:mr-28">
+        <div className="absolute bottom-24 left-1/2 hidden -translate-x-1/2 items-center gap-2.5 rounded-xl border border-line bg-surface/85 px-4 py-2.5 text-sm font-medium shadow-card backdrop-blur sm:flex md:bottom-28 md:left-auto md:right-[max(1.5rem,calc((100vw-80rem)/2))] md:translate-x-0 md:mr-28">
           <span className="relative flex h-2.5 w-2.5" aria-hidden="true">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-60 motion-reduce:hidden" />
             <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500" />

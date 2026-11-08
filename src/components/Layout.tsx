@@ -133,7 +133,7 @@ export default function Layout() {
           y > 8 || open ? 'border-line shadow-card' : 'border-transparent'
         }`}
       >
-        <div className="mx-auto flex h-16 max-w-5xl items-center justify-between gap-4 px-4 sm:px-6">
+        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-10">
           <NavLink to="/" className="font-display text-lg font-extrabold tracking-tight">
             {profile.name}
           </NavLink>
@@ -214,14 +214,14 @@ export default function Layout() {
         </div>
       )}
 
-      <main id="main" className="mx-auto w-full max-w-5xl flex-1 px-4 sm:px-6">
+      <main id="main" className="mx-auto w-full max-w-7xl flex-1 px-4 sm:px-6 lg:px-10">
         <div key={pathname} className={navigated.current ? 'page-enter' : undefined}>
           <Outlet />
         </div>
       </main>
 
       <footer className="mt-16 border-t border-line bg-surface">
-        <div className="mx-auto grid max-w-5xl gap-8 px-4 py-10 sm:grid-cols-[1.4fr_1fr] sm:px-6">
+        <div className="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:grid-cols-[1.4fr_1fr] sm:px-6 lg:px-10">
           <div>
             <p className="font-display text-xl font-extrabold tracking-tight">{profile.name}</p>
             <p className="mt-1 text-sm text-muted">{profile.headline}</p>
@@ -253,7 +253,7 @@ export default function Layout() {
           </nav>
         </div>
         <div className="border-t border-line">
-          <p className="mx-auto max-w-5xl px-4 py-5 text-xs text-muted sm:px-6">
+          <p className="mx-auto max-w-7xl px-4 py-5 text-xs text-muted sm:px-6 lg:px-10">
             © {new Date().getFullYear()} {profile.name}. All rights reserved.
           </p>
         </div>

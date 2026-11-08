@@ -23,7 +23,7 @@ export default function Contact() {
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-bg to-transparent" aria-hidden="true" />
         <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-bg/70 to-transparent" aria-hidden="true" />
 
-        <div className="relative mx-auto flex min-h-[calc(100svh-4rem)] max-w-5xl items-center px-4 py-16 sm:px-6">
+        <div className="relative mx-auto flex min-h-[calc(100svh-4rem)] max-w-7xl items-center px-4 py-16 sm:px-6 lg:px-10">
           <div className="max-w-xl md:max-w-[32rem]">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">Contact</p>
             <h1 className="mt-4 font-display text-5xl font-extrabold leading-[1.02] tracking-tight sm:text-6xl">Let's connect</h1>

@@ -188,25 +188,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Experience across — coloured logos, slow continuous scroll (pauses on hover; static for reduced motion) */}
-      <section id="experience-across" aria-label="Organisations I have worked with" className="scroll-mt-16 border-y border-line py-7">
-        <p className="text-center text-[11px] font-semibold uppercase tracking-[0.22em] text-muted">Experience across</p>
-        <div className="marquee mt-5 overflow-hidden">
-          <div className="marquee-track flex w-max items-center">
-            {[0, 1].map((dup) => (
-              <ul key={dup} aria-hidden={dup === 1 ? true : undefined} className="flex shrink-0 items-center gap-12 pr-12">
-                {experience.map((e) => (
-                  <li key={e.company} className="flex items-center gap-3 whitespace-nowrap">
-                    <LogoTile src={e.logo} name={e.company.split(',')[0]} size="sm" />
-                    <span className="text-base font-semibold">{e.company.split(',')[0]}</span>
-                  </li>
-                ))}
-              </ul>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* 01 — Experience */}
       <Section index="01" title="Experience" action={<MoreLink to="/professional">Full career</MoreLink>}>
         <ol className="space-y-1">

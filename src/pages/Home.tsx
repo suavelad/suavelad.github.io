@@ -42,7 +42,7 @@ const HERO_SLIDES = [
 const ROLES = [
   'Software Engineer',
   'Applied AI',
-  'Researcher at Carnegie Mellon',
+  'Graduate Student & Researcher at Carnegie Mellon University',
   'Co-founder & CTO',
   'AWS Community Co-Lead',
   'Python Rwanda Community Lead',

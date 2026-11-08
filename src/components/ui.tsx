@@ -67,7 +67,7 @@ export function Badge({ children }: { children: ReactNode }) {
 
 export function MoreLink({ to, children }: { to: string; children: ReactNode }) {
   return (
-    <Link to={to} className="inline-flex shrink-0 items-center gap-1 whitespace-nowrap text-sm font-semibold text-accent hover:underline">
+    <Link to={to} className="inline-flex min-h-10 shrink-0 items-center gap-1 whitespace-nowrap text-sm font-semibold text-accent hover:underline">
       {children} <ArrowIcon />
     </Link>
   )

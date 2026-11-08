@@ -29,7 +29,7 @@ export default function ProjectCard({ p }: { p: Project }) {
       {p.link && (
         <ExtLink
           href={p.link}
-          className="mt-4 inline-flex items-center gap-1 self-start text-sm font-medium text-accent hover:underline"
+          className="mt-2 inline-flex min-h-10 items-center gap-1 self-start text-sm font-medium text-accent hover:underline"
         >
           {p.linkLabel ?? 'Visit'} <ArrowIcon className="h-3.5 w-3.5" />
         </ExtLink>

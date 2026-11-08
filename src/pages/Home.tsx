@@ -132,7 +132,7 @@ export default function Home() {
 
               <p className="mt-4 text-lg leading-relaxed text-muted">
                 {profile.headline} with <strong className="font-semibold text-ink">{profile.years} years</strong> of
-                experience — {profile.proof.charAt(0).toLowerCase() + profile.proof.slice(1)}
+                experience building systems at scale — {profile.proof.charAt(0).toLowerCase() + profile.proof.slice(1)}
               </p>
 
               <div className="mt-8 flex flex-wrap gap-3">
@@ -356,7 +356,7 @@ export default function Home() {
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">Facilitation</p>
             <p className="mt-2 font-semibold leading-snug">{workshops[0].title}</p>
             <p className="mt-1.5 text-sm text-muted">{workshops[0].summary}</p>
-            <Link to="/community" className="mt-3 inline-block text-sm font-semibold text-accent hover:underline">
+            <Link to="/community" className="mt-2 inline-flex min-h-10 items-center text-sm font-semibold text-accent hover:underline">
               See all workshops
             </Link>
           </figcaption>

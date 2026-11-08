@@ -43,10 +43,10 @@ export default function PublicationList({ items }: { items: Publication[] }) {
               <CopyButton
                 text={`${p.authors} (${p.year}). ${p.title}. ${p.venue}.${p.url ? ` ${p.url}` : ''}`}
                 label="Copy citation"
-                className="font-medium text-muted transition hover:text-accent"
+                className="inline-flex min-h-10 items-center font-medium text-muted transition hover:text-accent"
               />
               {p.url && (
-                <ExtLink href={p.url} className="inline-flex items-center gap-1 font-medium text-accent hover:underline">
+                <ExtLink href={p.url} className="inline-flex min-h-10 items-center gap-1 font-medium text-accent hover:underline">
                   Read <ArrowIcon className="h-3.5 w-3.5" />
                   <span className="sr-only">{p.title} by {profile.name}</span>
                 </ExtLink>

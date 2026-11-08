@@ -225,7 +225,7 @@ export default function Layout() {
           <div>
             <p className="font-display text-xl font-extrabold tracking-tight">{profile.name}</p>
             <p className="mt-1 text-sm text-muted">{profile.headline}</p>
-            <a href={`mailto:${profile.email}`} className="mt-4 inline-block text-sm font-medium text-accent hover:underline">
+            <a href={`mailto:${profile.email}`} className="inline-flex min-h-10 items-center mt-4  text-sm font-medium text-accent hover:underline">
               {profile.email}
             </a>
             <ul className="-ml-2.5 mt-3 flex items-center gap-1">

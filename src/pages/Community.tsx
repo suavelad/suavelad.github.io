@@ -76,8 +76,8 @@ export default function Community() {
       <Section title="Mentorship">
         <Card className="p-8">
           <p className="max-w-2xl leading-relaxed text-muted">
-            Knowledge becomes more valuable when shared. I offer free 1:1 sessions on ADPList, where I was recognised as
-            a Top 100 Mentor. I can help with:
+            Knowledge becomes more valuable when shared. As an ADPList mentor, I offer free 1:1 sessions to aspiring
+            engineers. I can help with:
           </p>
           <ul className="mt-4 grid gap-2 sm:grid-cols-2">
             {mentorshipAreas.map((m) => (

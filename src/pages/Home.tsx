@@ -46,7 +46,7 @@ const ROLES = [
   'Co-founder & CTO',
   'AWS User Group Kigali Co-organizer',
   'Python Rwanda Community Lead',
-  'ADPList Top 100 Mentor',
+  'ADPList Mentor',
 ]
 
 /** Rotating lines in the hero: everything here is backed by content on the site */
@@ -362,7 +362,7 @@ export default function Home() {
           </figcaption>
         </figure>
         <p className="mt-5 text-sm leading-relaxed text-muted">
-          ADPList Top 100 Mentor — I mentor aspiring engineers on backend, cloud, applied AI and career growth.{' '}
+          ADPList Mentor — I mentor aspiring engineers on backend, cloud, applied AI and career growth.{' '}
           <ExtLink href={links.adplist} className="font-semibold text-accent hover:underline">
             Book a session
           </ExtLink>

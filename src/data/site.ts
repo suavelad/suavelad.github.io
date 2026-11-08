@@ -323,7 +323,6 @@ export const certifications: { name: string; issuer: string; year: string; logo?
 export const awards: { name: string; year: string; logo?: string }[] = [
   { name: 'USAII Global AI Hackathon 2026 — 2nd Runner-Up, Graduate Track', year: '2026', logo: '/images/orgs/usaii.webp' },
   { name: 'AWS × Bundesliga × Adidas × Slalom World Sports Innovation Cup — EMEA Finalist', year: '', logo: '/images/orgs/aws.svg' },
-  { name: 'ADPList Top 100 Mentor', year: '', logo: '/images/orgs/adplist.webp' },
   { name: 'AWS Community Builder — Data', year: '', logo: '/images/orgs/aws.svg' },
   { name: 'IEEE Smart Cities Ambassador', year: '', logo: '/images/orgs/ieee.svg' },
 ]

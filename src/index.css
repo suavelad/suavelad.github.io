@@ -96,6 +96,18 @@ body::before {
   mask-composite: intersect;
 }
 
+/* Soft fade on every edge — photos melt into the page (both themes) */
+.fade-edges {
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 18%, #000 82%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, #000 12%, #000 78%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(to right, transparent 0%, #000 18%, #000 82%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, #000 12%, #000 78%, transparent 100%);
+  mask-composite: intersect;
+}
+@keyframes fade-in-slow { from { opacity: 0; transform: scale(1.02); } to { opacity: 1; transform: none; } }
+.fade-in-slow { animation: fade-in-slow 1100ms ease-out both; }
+
 /* Logo strip marquee */
 @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 .marquee-track { animation: marquee 32s linear infinite; }

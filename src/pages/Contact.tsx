@@ -6,7 +6,7 @@ import { CopyButton, ExtLink, PageHeader, Section, btnGhost, btnPrimary } from '
 export default function Contact() {
   return (
     <>
-      <div className="grid items-center gap-10 md:grid-cols-[1fr_auto]">
+      <div className="grid items-center gap-6 md:grid-cols-[1fr_auto] md:gap-4">
         <div>
           <PageHeader eyebrow="Contact" title="Let's connect">
             Have an interesting problem, research idea or opportunity to collaborate? I'm always up for conversations about
@@ -29,13 +29,12 @@ export default function Contact() {
           </div>
         </div>
         <img
-          src="/images/gallery/outdoor.webp"
+          src="/images/gallery/hero-outdoor.webp"
           alt={`${profile.name} smiling outdoors in a black leather jacket`}
-          width={640}
-          height={851}
-          loading="lazy"
+          width={840}
+          height={1117}
           decoding="async"
-          className="mx-auto w-56 rotate-2 rounded-3xl border-4 border-surface object-cover shadow-2xl shadow-black/20 sm:w-64 md:mt-12"
+          className="fade-edges fade-in-slow mx-auto w-72 object-cover sm:w-80 md:w-[24rem] lg:w-[26rem]"
         />
       </div>
 

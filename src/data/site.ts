@@ -4,7 +4,7 @@
 
 export const profile = {
   name: 'Sunday Ajayi',
-  headline: 'Backend & Applied AI Engineer',
+  headline: 'Software & Applied AI Engineer',
   years: '5+',
   location: 'Kigali, Rwanda',
   affiliation: 'Carnegie Mellon University',
@@ -17,10 +17,10 @@ export const profile = {
   photo: '/images/gallery/portrait-bw-hero.webp',
   photoAlt: 'Black-and-white portrait of Sunday Ajayi wearing glasses, arms crossed',
   /** Big hero statement + supporting line */
-  pitch: 'I build reliable backend and AI systems.',
+  pitch: 'I build reliable software and AI systems.',
   proof: 'From a national rail platform serving 300,000+ users to AI evaluation infrastructure.',
   intro: [
-    'I design and ship backend systems in Python and Go on AWS and Google Cloud, across fintech, telephony and transport. Now pursuing an MSc in Information Technology at Carnegie Mellon University, researching accessible and responsible AI.',
+    'I design and ship software systems in Python and Go on AWS and Google Cloud, across fintech, telephony and transport. Now pursuing an MSc in Information Technology at Carnegie Mellon University, researching accessible and responsible AI.',
   ],
 }
 

@@ -15,9 +15,9 @@ export type PageMeta = { path: string; title: string; description: string; prior
 export const pages: PageMeta[] = [
   {
     path: '/',
-    title: 'Sunday Ajayi | Backend & Applied AI Engineer',
+    title: 'Sunday Ajayi | Software & Applied AI Engineer',
     description:
-      'Backend & Applied AI Engineer with 5+ years in Python, Go, AWS and Google Cloud — built a national rail platform serving 300,000+ users. MSc IT at Carnegie Mellon University. Open to full-time roles, research internships and speaking.',
+      'Software & Applied AI Engineer with 5+ years in Python, Go, AWS and Google Cloud — built a national rail platform serving 300,000+ users. MSc IT at Carnegie Mellon University. Open to full-time roles, research internships and speaking.',
     priority: 1.0,
   },
   {
@@ -81,7 +81,7 @@ export function personJsonLd() {
     alternateName: 'Sunday Iyanu Ajayi',
     url: `${SITE_URL}/`,
     image: `${SITE_URL}${profile.photo}`,
-    jobTitle: 'Backend & Applied AI Engineer',
+    jobTitle: 'Software & Applied AI Engineer',
     description: pages[0].description,
     email: `mailto:${profile.email}`,
     address: { '@type': 'PostalAddress', addressLocality: 'Kigali', addressCountry: 'RW' },

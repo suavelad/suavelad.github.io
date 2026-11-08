@@ -40,7 +40,7 @@ const HERO_SLIDES = [
 
 /** Roles ribbon at the bottom of the hero — each backed by content on the site */
 const ROLES = [
-  'Backend Engineer',
+  'Software Engineer',
   'Applied AI',
   'Researcher at Carnegie Mellon',
   'Co-founder & CTO',
@@ -51,7 +51,7 @@ const ROLES = [
 
 /** Rotating lines in the hero: everything here is backed by content on the site */
 const HERO_PHRASES = [
-  'build reliable backend systems.',
+  'build reliable software systems.',
   'build AI evaluation infrastructure.',
   'build accessible fintech for Africa.',
   'build inclusive accessibility solutions.',

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--seo-->
+    <meta name="theme-color" content="#0f1726" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet" /></noscript>
+    <script>
+      // Apply theme before paint. Default: dark.
+      (function () {
+        var t = 'dark'
+        try { t = localStorage.getItem('theme') || 'dark' } catch (e) {}
+        document.documentElement.classList.toggle('dark', t === 'dark')
+        if (t !== 'dark') document.querySelector('meta[name="theme-color"]').setAttribute('content', '#faf8f4')
+      })()
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>Sunday Ajayi — Backend &amp; Applied AI Engineer, 5+ years. MSc IT at Carnegie Mellon University. Please enable JavaScript to view this site.</noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
